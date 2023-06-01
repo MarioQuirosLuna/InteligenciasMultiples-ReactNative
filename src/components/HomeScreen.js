@@ -1,21 +1,12 @@
 import { Alert, FlatList, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import { useRoute } from '@react-navigation/native';
+import useQuestions from "../hooks/useQuestions";
+
 
 const HomeScreen = () => {
     const route = useRoute();
-    const { name, users } = route.params;
-    const data = [
-        {
-            id: 1,
-            question: '¿Cuál es tu color favorito?',
-            options: ['Rojo', 'Verde', 'Azul', 'Amarillo'],
-        },
-        {
-            id: 2,
-            question: '¿Cuál es tu animal favorito?',
-            options: ['Perro', 'Gato', 'Elefante', 'León'],
-        },
-    ];
+    const { name } = route.params;
+    const { questions } = useQuestions();
 
     const renderItem = ({ item }) => (
         <View style={styles.questionContainer}>
@@ -34,7 +25,7 @@ const HomeScreen = () => {
         <View style={styles.container}>
             <Text style={styles.title}>Bienvenido {name}</Text>
             <FlatList
-                data={data}
+                data={questions}
                 renderItem={renderItem}
                 keyExtractor={(item) => item.id.toString()}
             />
