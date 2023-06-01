@@ -1,22 +1,24 @@
 [
     {
         "id": 1,
-        "question": "¿Cuál es tu color favorito?",
+        "question": "¿Cuándo te encuentras en un nuevo entorno, ¿tiendes a memorizar rápidamente los detalles del lugar?",
         "options": [
-            "Rojo",
-            "Verde",
-            "Azul",
-            "Amarillo"
+            1,
+            2,
+            3,
+            4,
+            5
         ]
     },
     {
         "id": 2,
-        "question": "¿Cuál es tu animal favorito?",
+        "question": "¿Disfrutas resolviendo rompecabezas o juegos de construcción?",
         "options": [
-            "Perro",
-            "Gato",
-            "Elefante",
-            "León"
+            1,
+            2,
+            3,
+            4,
+            5
         ]
     }
 ]

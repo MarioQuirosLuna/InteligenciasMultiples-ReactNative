@@ -24,6 +24,7 @@ const HomeScreen = () => {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Bienvenido {name}</Text>
+            <Text style={styles.subtitle}>Reponda pensando en que tan identificado te sientes con la pregunta, donde 1 es nada y 5 demasiado.</Text>
             <FlatList
                 data={questions}
                 renderItem={renderItem}
@@ -35,12 +36,19 @@ const HomeScreen = () => {
 
 const styles = StyleSheet.create({
     container: {
-        padding: 10,
+        paddingHorizontal: 14,
+        paddingVertical: 10,
     },
     title: {
-        fontSize: 20,
+        fontSize: 26,
         fontWeight: 'bold',
         alignSelf: 'center',
+        paddingVertical: 10,
+    },
+    subtitle: {
+        fontSize: 18,
+        alignSelf: 'center',
+        paddingVertical: 10,
     },
     questionContainer: {
         marginBottom: 20,
