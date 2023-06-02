@@ -8,10 +8,8 @@ import useUser from '../hooks/useUser.js';
 
 const LoginScreen = ({ }) => {
     const [inputValueName, setInputValueName] = useState("");
-    const [inputValueEmail, setInputValueEmail] = useState("");
     const [inputValuePassword, setInputValuePassword] = useState("");
     const inputName = useRef();
-    const inputEmail = useRef();
     const inputPassword = useRef();
 
     const navigation = useNavigation();
