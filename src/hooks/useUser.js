@@ -51,6 +51,14 @@ const useUser = () => {
         }
     };
 
+    const getUser = (name) => {
+        const existingUser = users.find((existingUser) => existingUser.name === name);
+
+        if (existingUser) {
+            return existingUser.intelligence;
+        }
+    }
+
     const createUser = (user) => {
         const existingUser = users.find((existingUser) => existingUser.name === user.name);
 
@@ -64,7 +72,7 @@ const useUser = () => {
     };
 
 
-    return { users: users, loginUser, createUser };
+    return { users: users, loginUser, createUser, getUser};
 }
 
 export default useUser;

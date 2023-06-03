@@ -8,45 +8,30 @@ import {
 import { useRoute } from "@react-navigation/native";
 import { Button } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
-import useQuestions from "../hooks/useQuestions";
-import Question from "./Question";
-import Navigate from "./Navigate";
+import useUser from '../hooks/useUser.js';
 
-const HomeScreen = () => {
+const ResultScreen = () => {
     const route = useRoute();
     const { name } = route.params;
 
     const navigation = useNavigation();
+    const { users, getUser } = useUser();
 
-    const { questions } = useQuestions();
-    const [selectedOptions, setSelectedOptions] = useState([]);
-    const [currentQuestion, setCurrentQuestion] = useState(0);
+    let intelligence = getUser(name);
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Bienvenido(a) {name}</Text>
+            <Text style={styles.title}>La inteligencia de {name} es:</Text>
             <Text style={styles.subtitle}>
-                Responda pensando en qué tan identificado se siente con la pregunta, donde 1 es nada y 5 demasiado.
+                {intelligence}
             </Text>
-            {questions.length > 0 ? (
-                <Question question={questions[currentQuestion]} />
-            ) : (
-                <ActivityIndicator size="large" />
-            )}
-            <View style={styles.navigateContainer}>
-                <Navigate
-                    currentQuestion={currentQuestion}
-                    setCurrentQuestion={setCurrentQuestion}
-                />
-            </View>
             <Button
-                title="Resultado"
+                title="Coincidencias"
                 buttonStyle={styles.button}
                 titleStyle={styles.buttonText}
                 onPress={() => {
-                    navigation.navigate("Result", { name: name, });
+                    navigation.navigate("Match", { name: name, });
                 }}
-
             />
         </View>
     );
@@ -55,10 +40,11 @@ const HomeScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "flex-start",
+        justifyContent: "center",
         alignItems: "center",
         paddingTop: 40,
-        paddingHorizontal: 20,
+        marginBottom: 30,
+        marginHorizontal: 20,
         backgroundColor: "#ffffff",
     },
     title: {
@@ -67,14 +53,8 @@ const styles = StyleSheet.create({
         marginBottom: 20,
     },
     subtitle: {
-        fontSize: 16,
-        marginBottom: 20,
-    },
-    questionContainer: {
-        flex: 1,
-        width: "100%",
-    },
-    navigateContainer: {
+        fontSize: 70,
+        fontWeight: "bold",
         marginBottom: 20,
     },
     button: {
@@ -91,4 +71,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default HomeScreen;
+export default ResultScreen;

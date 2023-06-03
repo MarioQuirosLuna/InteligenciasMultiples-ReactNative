@@ -44,9 +44,9 @@ const LoginScreen = ({ }) => {
                     let state = loginUser({ name: inputValueName, password: inputValuePassword, });
                     if (state === 'Logged in') {
                         navigation.navigate("Home", { name: inputValueName });
-                        Alert.alert("Logged in");
+                        Alert.alert("Sesión iniciada");
                     } else {
-                        Alert.alert(state);
+                        Alert.alert("Usuario no encontrado, por favor verifique sus datos");
                     }
                 }}
 
@@ -58,7 +58,11 @@ const LoginScreen = ({ }) => {
                 onPress={() => {
                     let state = createUser({ name: inputValueName, password: inputValuePassword, });
                     if (state === 'User created') {
-                        Alert.alert("User created");
+                        Alert.alert("Usuario creado exitosamente");
+                    }else{
+                        if(state === 'User already exists'){
+                            Alert.alert("El nombre de usuario ya existe, por favor seleccione otro");
+                        }
                     }
                 }}
             />
