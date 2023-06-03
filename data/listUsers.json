@@ -1,3 +1,74 @@
 [
-
+    {
+        "id": 1,
+        "name": "Juan Pérez",
+        "password": "123",
+        "intelligence": "Espacial"
+    },
+    {
+        "id": 2,
+        "name": "María Gómez",
+        "password": "123",
+        "intelligence": "Musical"
+    },
+    {
+        "id": 3,
+        "name": "Carlos López",
+        "password": "123",
+        "intelligence": "Lingüístico-verbal"
+    },
+    {
+        "id": 4,
+        "name": "Laura Rodríguez",
+        "password": "123",
+        "intelligence": "Lógico-matemático"
+    },
+    {
+        "id": 5,
+        "name": "Andrés García",
+        "password": "123",
+        "intelligence": "Corporal-cinestésico"
+    },
+    {
+        "id": 6,
+        "name": "Sofía Torres",
+        "password": "123",
+        "intelligence": "Intrapersonal"
+    },
+    {
+        "id": 7,
+        "name": "Alejandro Ramírez",
+        "password": "123",
+        "intelligence": "Interpersonal"
+    },
+    {
+        "id": 8,
+        "name": "Valentina Cruz",
+        "password": "123",
+        "intelligence": "Naturalista"
+    },
+    {
+        "id": 9,
+        "name": "David Romero",
+        "password": "123",
+        "intelligence": "Existencial"
+    },
+    {
+        "id": 10,
+        "name": "Carolina Vargas",
+        "password": "123",
+        "intelligence": "Creativo"
+    },
+    {
+        "id": 11,
+        "name": "José Medina",
+        "password": "123",
+        "intelligence": "Emocional"
+    },
+    {
+        "id": 12,
+        "name": "Isabella Sánchez",
+        "password": "123",
+        "intelligence": "Colaborativo"
+    }
 ]

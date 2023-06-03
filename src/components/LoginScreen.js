@@ -1,5 +1,5 @@
-import { useRef, useState } from 'react';
-import { Alert, FlatList, StyleSheet, Text, TextInput, View, } from 'react-native';
+import { useState } from 'react';
+import { Alert, StyleSheet, Text, TextInput, View, } from 'react-native';
 import { Button } from 'react-native-elements';
 
 import { useNavigation } from '@react-navigation/native';
@@ -9,66 +9,70 @@ import useUser from '../hooks/useUser.js';
 const LoginScreen = ({ }) => {
     const [inputValueName, setInputValueName] = useState("");
     const [inputValuePassword, setInputValuePassword] = useState("");
-    const inputName = useRef();
-    const inputPassword = useRef();
-
     const navigation = useNavigation();
 
-    const { users, loginUser, createUser } = useUser();
+    const { loginUser, createUser, resetUsers } = useUser();
 
     return (
         <View style={styles.container}>
             <Text style={styles.title}>Inteligencias Múltiples</Text>
             <TextInput
-                ref={inputName}
                 style={styles.textInput}
                 value={inputValueName}
                 onChangeText={setInputValueName}
                 autoCapitalize="none"
-                placeholder='Ingrese su nombre...'
+                placeholder="Ingrese su nombre..."
+                autoFocus={true} // Enfocar automáticamente este campo
             />
             <TextInput
-                ref={inputPassword}
                 style={styles.textInput}
                 value={inputValuePassword}
                 onChangeText={setInputValuePassword}
                 secureTextEntry={true}
                 autoCapitalize="none"
-                placeholder='Ingrese su contraseña...'
+                placeholder="Ingrese su contraseña..."
             />
             <Button
                 title="Iniciar Sesión"
                 buttonStyle={styles.button}
                 titleStyle={styles.buttonText}
                 onPress={() => {
-                    let state = loginUser({ name: inputValueName, password: inputValuePassword, });
+                    let state = loginUser({ name: inputValueName, password: inputValuePassword });
                     if (state === 'Logged in') {
-                        navigation.navigate("Home", { name: inputValueName });
-                        Alert.alert("Sesión iniciada");
+                        navigation.navigate('Home', { name: inputValueName });
+                        Alert.alert('Sesión iniciada');
                     } else {
-                        Alert.alert("Usuario no encontrado, por favor verifique sus datos");
+                        Alert.alert('Usuario no encontrado, por favor verifique sus datos');
                     }
                 }}
-
             />
             <Button
                 title="Registrarse"
                 buttonStyle={styles.button}
                 titleStyle={styles.buttonText}
                 onPress={() => {
-                    let state = createUser({ name: inputValueName, password: inputValuePassword, });
+                    let state = createUser({ name: inputValueName, password: inputValuePassword });
                     if (state === 'User created') {
-                        Alert.alert("Usuario creado exitosamente");
-                    }else{
-                        if(state === 'User already exists'){
-                            Alert.alert("El nombre de usuario ya existe, por favor seleccione otro");
+                        Alert.alert('Usuario creado exitosamente');
+                    } else {
+                        if (state === 'User already exists') {
+                            Alert.alert('El nombre de usuario ya existe, por favor seleccione otro');
                         }
                     }
                 }}
             />
+            <Button
+                title="Resetear"
+                buttonStyle={styles.button}
+                titleStyle={styles.buttonText}
+                onPress={() => {
+                    resetUsers();
+                    Alert.alert('Datos reestablecidos exitosamente');
+                }}
+            />
         </View>
     );
-}
+};
 
 const styles = StyleSheet.create({
     container: {

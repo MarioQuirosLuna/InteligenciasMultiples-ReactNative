@@ -13,6 +13,8 @@ const useUser = () => {
             if (userData) {
                 const user = JSON.parse(userData);
                 setUsers(user);
+            } else {
+                setUsers(listUsers);
             }
         } catch (e) {
             console.log(e);
@@ -22,7 +24,8 @@ const useUser = () => {
     const resetUsers = async () => {
         try {
             await AsyncStorage.removeItem('@UserListStore:Users');
-            setUsers([]);
+            setUsers(null);
+            loadUsers();
         } catch (e) {
             console.log(e);
         }
@@ -103,7 +106,7 @@ const useUser = () => {
         return matches;
     }
 
-    return { users: users, loginUser, createUser, getUserIntelligence, setUserIntelligence, searchUserMatches };
+    return { users: users, loginUser, createUser, getUserIntelligence, setUserIntelligence, searchUserMatches, resetUsers };
 }
 
 export default useUser;
