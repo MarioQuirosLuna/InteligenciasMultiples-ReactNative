@@ -15,9 +15,9 @@ const ResultScreen = () => {
     const { name } = route.params;
 
     const navigation = useNavigation();
-    const { users, getUser } = useUser();
+    const { users, getUserIntelligence } = useUser();
 
-    let intelligence = getUser(name);
+    let intelligence = getUserIntelligence(name);
 
     return (
         <View style={styles.container}>

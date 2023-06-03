@@ -14,6 +14,7 @@ import Navigate from "./Navigate";
 import ModalComponent from "./ModalComponent";
 import useEuclides from "../hooks/useEuclides";
 import useIntelligences from "../hooks/useIntelligences";
+import useUser from "../hooks/useUser";
 
 const HomeScreen = () => {
     const route = useRoute();
@@ -23,7 +24,8 @@ const HomeScreen = () => {
 
     const { questions } = useQuestions();
     const { intelligences } = useIntelligences();
-    const { intelligence, fillVectorsWithEuclidesResults } = useEuclides();
+    const { findClosestIntelligenceWithEuclides, findClosestIntelligenceWithRandomEuclides } = useEuclides();
+    const { setUserIntelligence } = useUser();
     const [selectedOptions, setSelectedOptions] = useState([]);
     const [currentQuestion, setCurrentQuestion] = useState(0);
 
@@ -34,17 +36,18 @@ const HomeScreen = () => {
     }
 
     const calculateEuclides = () => {
-        const euclidesResults = fillVectorsWithEuclidesResults(intelligences, selectedOptions);
-        return euclidesResults;
+        const euclidesResultIntelligence = findClosestIntelligenceWithEuclides(intelligences, selectedOptions);
+        return euclidesResultIntelligence;
+    }
+
+    const verifyAllValuesAdded = (array) => {
+        return array.every((value) => value !== -1);
     }
 
     useEffect(() => {
         setSelectedOptions(new Array(36).fill(-1));
     }, []);
 
-    useEffect(() => {
-        calculateEuclides()
-    }, [intelligences]);
 
     return (
         <View style={styles.container}>
@@ -67,16 +70,27 @@ const HomeScreen = () => {
                     setCurrentQuestion={setCurrentQuestion}
                 />
             </View>
-            <ModalComponent text={calculateEuclides()} />
-            <Button
-                title="Resultado"
-                buttonStyle={styles.button}
-                titleStyle={styles.buttonText}
-                onPress={() => {
-                    navigation.navigate("Result", { name: name, });
-                }}
-
-            />
+            {currentQuestion === 35 && verifyAllValuesAdded(selectedOptions) ? (
+                <Button
+                    title="Resultado"
+                    buttonStyle={styles.button}
+                    titleStyle={styles.buttonText}
+                    onPress={() => {
+                        setUserIntelligence(name, findClosestIntelligenceWithEuclides(intelligences, selectedOptions));
+                        navigation.navigate("Result", { name: name, });
+                    }}
+                />
+            ) : (
+                <Button
+                    title="Random"
+                    buttonStyle={styles.button}
+                    titleStyle={styles.buttonText}
+                    onPress={() => {
+                        setUserIntelligence(name, findClosestIntelligenceWithRandomEuclides(intelligences, selectedOptions));
+                        navigation.navigate("Result", { name: name, });
+                    }}
+                />
+            )}
         </View>
     );
 };

@@ -1,10 +1,23 @@
-import { useState } from "react";
 
 const useEuclides = () => {
 
-    const [intelligence, setIntelligence] = useState('default');
+    const findClosestIntelligenceWithEuclides = (intelligencesVector, userVector) => {
+        let minEuclides = Infinity;
+        let minIntelligence = null;
 
-    const fillVectorsWithEuclidesResults = (intelligencesVector, userVector) => {
+        intelligencesVector.forEach((intelligenceVector, index) => {
+            const euclides = calcEuclides(index, intelligenceVector, userVector);
+
+            if (euclides < minEuclides) {
+                minEuclides = euclides;
+                minIntelligence = intelligenceVector.intelligence;
+            }
+        });
+
+        return minIntelligence;
+    }
+
+    const findClosestIntelligenceWithRandomEuclides = (intelligencesVector, userVector) => {
         userVector = userVector.map(() => {
             return Math.floor(Math.random() * 5) + 1;
         });
@@ -35,7 +48,7 @@ const useEuclides = () => {
         return Math.sqrt(sum);
     }
 
-    return { intelligence, fillVectorsWithEuclidesResults };
+    return { findClosestIntelligenceWithEuclides, findClosestIntelligenceWithRandomEuclides };
 }
 
 export default useEuclides;

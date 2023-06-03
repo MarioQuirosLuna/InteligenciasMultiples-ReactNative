@@ -19,6 +19,16 @@ const useUser = () => {
         }
     };
 
+    const resetUsers = async () => {
+        try {
+            await AsyncStorage.removeItem('@UserListStore:Users');
+            setUsers([]);
+        } catch (e) {
+            console.log(e);
+        }
+    };
+
+
     //Load users
     useEffect(() => {
         if (users.length) return;
@@ -51,11 +61,21 @@ const useUser = () => {
         }
     };
 
-    const getUser = (name) => {
+    const getUserIntelligence = (name) => {
         const existingUser = users.find((existingUser) => existingUser.name === name);
 
         if (existingUser) {
             return existingUser.intelligence;
+        }
+    }
+
+    const setUserIntelligence = (name, newInelligence) => {
+        const index = users.findIndex((user) => user.name === name);
+
+        if (index !== -1) {
+            const updateUsers = [...users];
+            updateUsers[index].intelligence = newInelligence;
+            setUsers(updateUsers);
         }
     }
 
@@ -71,8 +91,7 @@ const useUser = () => {
         }
     };
 
-
-    return { users: users, loginUser, createUser, getUser};
+    return { users: users, loginUser, createUser, getUserIntelligence, setUserIntelligence };
 }
 
 export default useUser;
