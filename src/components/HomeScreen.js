@@ -8,12 +8,12 @@ import {
 import { useRoute } from "@react-navigation/native";
 import useQuestions from "../hooks/useQuestions";
 import Question from "./Question";
-import Navigator from "./Navigator";
+import Navigate from "./Navigate";
 
 const HomeScreen = () => {
     const route = useRoute();
-    //const { name } = route.params;
-    let name = "Juan";
+    const { name } = route.params;
+
     const { questions } = useQuestions();
     const [selectedOptions, setSelectedOptions] = useState([]);
     const [currentQuestion, setCurrentQuestion] = useState(0);
@@ -29,8 +29,8 @@ const HomeScreen = () => {
             ) : (
                 <ActivityIndicator size="large" />
             )}
-            <View style={styles.navigatorContainer}>
-                <Navigator
+            <View style={styles.navigateContainer}>
+                <Navigate
                     currentQuestion={currentQuestion}
                     setCurrentQuestion={setCurrentQuestion}
                 />
@@ -61,7 +61,7 @@ const styles = StyleSheet.create({
         flex: 1,
         width: "100%",
     },
-    navigatorContainer: {
+    navigateContainer: {
         marginBottom: 20,
     },
 });

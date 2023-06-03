@@ -34,9 +34,10 @@ const Question = ({ question }) => {
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
+        backgroundColor: "#f5f5f5"
     },
     questionContainer: {
-        backgroundColor: "#f9f9f9",
+        backgroundColor: "#f5f5f5",
         borderRadius: 8,
         paddingVertical: 20,
         paddingHorizontal: 20,
@@ -54,7 +55,7 @@ const styles = StyleSheet.create({
     optionsContainer: {
         flexDirection: "row",
         flexWrap: "wrap",
-        justifyContent: "space-between",
+        justifyContent: "space-around",
     },
     optionButton: {
         backgroundColor: "#4287f5",

@@ -18,14 +18,14 @@ const LoginScreen = ({ }) => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Multiple Inteligences</Text>
+            <Text style={styles.title}>Inteligencias Múltiples</Text>
             <TextInput
                 ref={inputName}
                 style={styles.textInput}
                 value={inputValueName}
                 onChangeText={setInputValueName}
                 autoCapitalize="none"
-                placeholder='Enter your name...'
+                placeholder='Ingrese su nombre...'
             />
             <TextInput
                 ref={inputPassword}
@@ -34,10 +34,10 @@ const LoginScreen = ({ }) => {
                 onChangeText={setInputValuePassword}
                 secureTextEntry={true}
                 autoCapitalize="none"
-                placeholder='Enter your password...'
+                placeholder='Ingrese su contraseña...'
             />
             <Button
-                title=" Log In "
+                title="Iniciar Sesión"
                 buttonStyle={styles.button}
                 titleStyle={styles.buttonText}
                 onPress={() => {
@@ -52,7 +52,7 @@ const LoginScreen = ({ }) => {
 
             />
             <Button
-                title="Sign Up"
+                title="Registrarse"
                 buttonStyle={styles.button}
                 titleStyle={styles.buttonText}
                 onPress={() => {

@@ -15,12 +15,12 @@ export default function App() {
       <Navigator>
         <Screen
           name="Login"
-          options={{ title: "Login" }}
+          options={{ title: "Inicio Sesión" }}
           component={LoginScreen}
         />
         <Screen
           name="Home"
-          options={{ title: "Home" }}
+          options={{ title: "Inteligencias Múltiples" }}
           component={HomeScreen}
         />
       </Navigator>

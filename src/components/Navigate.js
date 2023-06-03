@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-const Navigator = ({ currentQuestion, setCurrentQuestion }) => {
+const Navigate = ({ currentQuestion, setCurrentQuestion }) => {
 
     const goToNextQuestion = () => {
-        if (currentQuestion < 36) {
+        if (currentQuestion < 35) {
             setCurrentQuestion(prevQuestion => prevQuestion + 1);
         }
     };
@@ -49,4 +49,4 @@ const styles = StyleSheet.create({
     },
 });
 
-export default Navigator;
+export default Navigate;
