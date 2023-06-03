@@ -15,7 +15,7 @@ const ResultScreen = () => {
     const { name } = route.params;
 
     const navigation = useNavigation();
-    const { users, getUserIntelligence } = useUser();
+    const { getUserIntelligence, searchUserMatches } = useUser();
 
     let intelligence = getUserIntelligence(name);
 
@@ -30,7 +30,7 @@ const ResultScreen = () => {
                 buttonStyle={styles.button}
                 titleStyle={styles.buttonText}
                 onPress={() => {
-                    navigation.navigate("Match", { name: name, });
+                    navigation.navigate("Match", { name: name, usersMatches: searchUserMatches(name, intelligence) });
                 }}
             />
         </View>

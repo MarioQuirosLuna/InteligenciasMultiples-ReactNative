@@ -91,7 +91,19 @@ const useUser = () => {
         }
     };
 
-    return { users: users, loginUser, createUser, getUserIntelligence, setUserIntelligence };
+    const searchUserMatches = (nameUser, intelligenceUser) => {
+        const matches = [];
+        for (let i = 0; i < users.length; i++) {
+            if (users[i].name !== nameUser) {
+                if (users[i].intelligence === intelligenceUser) {
+                    matches.push(users[i]);
+                }
+            }
+        }
+        return matches;
+    }
+
+    return { users: users, loginUser, createUser, getUserIntelligence, setUserIntelligence, searchUserMatches };
 }
 
 export default useUser;

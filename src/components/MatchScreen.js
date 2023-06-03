@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import {
     ActivityIndicator,
+    FlatList,
     StyleSheet,
     Text,
     View,
@@ -10,23 +11,35 @@ import useUser from '../hooks/useUser.js';
 
 const MatchScreen = () => {
     const route = useRoute();
-    const { name } = route.params;
+    const { name, usersMatches } = route.params;
 
-    const { users, getUser } = useUser();
+    const { users, getUserIntelligence } = useUser();
 
-    let intelligence = getUser(name);
+    let intelligence = getUserIntelligence(name);
+
+    const renderItem = ({ item }) => (
+        <View style={styles.tableRow}>
+            <Text style={styles.tableCell}>{item.name}</Text>
+            <Text style={styles.tableCell}>{item.intelligence}</Text>
+        </View>
+    );
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Para {name} con inteligencia {intelligence} se tienen estas coincidencias:</Text>
-            <Text style={styles.subtitle}>
-                {users.map((user, index) => (
-                <Text key={index}>
-                    <Text>{'\n'}{index+1}{'.  Nombre: '}{user.name}{' - Inteligencia: '}</Text>
-                    <Text>{user.intelligence}{'.\n'}</Text>
-                </Text>
-                ))}
+            <Text style={styles.title}>
+                Para {name} con inteligencia {intelligence}, se tienen estas coincidencias:
             </Text>
+            <View style={styles.containerTable}>
+                <View style={styles.tableRow}>
+                    <Text style={styles.tableHeader}>Nombre</Text>
+                    <Text style={styles.tableHeader}>Inteligencia</Text>
+                </View>
+                <FlatList
+                    data={usersMatches}
+                    renderItem={renderItem}
+                    keyExtractor={(item, index) => index.toString()}
+                />
+            </View>
         </View>
     );
 };
@@ -34,33 +47,35 @@ const MatchScreen = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
-        paddingTop: 40,
-        marginBottom: 30,
-        marginHorizontal: 20,
+        padding: 20,
         backgroundColor: "#ffffff",
     },
     title: {
-        fontSize: 24,
+        fontSize: 20,
         fontWeight: "bold",
         marginBottom: 20,
+        textAlign: "center",
     },
-    subtitle: {
-        fontSize: 20,
-        marginBottom: 20,
+    containerTable: {
+        borderWidth: 1,
+        borderColor: "#d0d0d0",
+        borderRadius: 4,
+        backgroundColor: "#f5f5f5",
+        padding: 10,
     },
-    button: {
-        alignSelf: 'center',
-        borderRadius: 10,
-        paddingVertical: 15,
-        paddingHorizontal: 40,
-        marginTop: 20,
+    tableRow: {
+        flexDirection: "row",
+        alignItems: "center",
+        borderBottomWidth: 1,
+        borderBottomColor: "#d0d0d0",
+        paddingVertical: 10,
     },
-    buttonText: {
-        textAlign: 'center',
-        fontSize: 18,
-        fontWeight: 'bold',
+    tableHeader: {
+        flex: 1,
+        fontWeight: "bold",
+    },
+    tableCell: {
+        flex: 1,
     },
 });
 
