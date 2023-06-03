@@ -9,7 +9,15 @@ import {
 
 const windowWidth = Dimensions.get("window").width;
 
-const Question = ({ question }) => {
+const Question = ({ question, addAnswer, selectedOptions }) => {
+
+    const showSelectedOptions = (questionId, optionNumber) => {
+        if (selectedOptions[questionId] === optionNumber) {
+            return (
+                { backgroundColor: "#00ff00" }
+            )
+        }
+    }
 
     return (
         <View style={styles.screen}>
@@ -20,8 +28,8 @@ const Question = ({ question }) => {
                 {question.options.map((option, index) => (
                     <TouchableOpacity
                         key={index}
-                        style={styles.optionButton}
-                        onPress={() => { }}
+                        style={[styles.optionButton, showSelectedOptions(question.id, index)]}
+                        onPress={() => addAnswer(question.id, index)}
                     >
                         <Text style={styles.optionText}>{option}</Text>
                     </TouchableOpacity>
