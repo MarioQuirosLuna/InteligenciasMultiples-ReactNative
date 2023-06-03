@@ -6,6 +6,8 @@ import {
     View,
 } from "react-native";
 import { useRoute } from "@react-navigation/native";
+import { Button } from 'react-native-elements';
+import { useNavigation } from '@react-navigation/native';
 import useQuestions from "../hooks/useQuestions";
 import Question from "./Question";
 import Navigate from "./Navigate";
@@ -16,6 +18,9 @@ import useIntelligences from "../hooks/useIntelligences";
 const HomeScreen = () => {
     const route = useRoute();
     const { name } = route.params;
+
+    const navigation = useNavigation();
+
     const { questions } = useQuestions();
     const { intelligences } = useIntelligences();
     const { intelligence, fillVectorsWithEuclidesResults } = useEuclides();
@@ -43,7 +48,7 @@ const HomeScreen = () => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Bienvenido {name}</Text>
+            <Text style={styles.title}>Bienvenido(a) {name}</Text>
             <Text style={styles.subtitle}>
                 Responda pensando en qué tan identificado se siente con la pregunta, donde 1 es nada y 5 demasiado.
             </Text>
@@ -63,6 +68,15 @@ const HomeScreen = () => {
                 />
             </View>
             <ModalComponent text={calculateEuclides()} />
+            <Button
+                title="Resultado"
+                buttonStyle={styles.button}
+                titleStyle={styles.buttonText}
+                onPress={() => {
+                    navigation.navigate("Result", { name: name, });
+                }}
+
+            />
         </View>
     );
 };
@@ -92,6 +106,18 @@ const styles = StyleSheet.create({
     },
     navigateContainer: {
         marginBottom: 20,
+    },
+    button: {
+        alignSelf: 'center',
+        borderRadius: 10,
+        paddingVertical: 15,
+        paddingHorizontal: 40,
+        marginTop: 20,
+    },
+    buttonText: {
+        textAlign: 'center',
+        fontSize: 18,
+        fontWeight: 'bold',
     },
 });
 
