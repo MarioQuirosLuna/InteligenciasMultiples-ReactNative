@@ -39,7 +39,7 @@ const LoginScreen = ({ }) => {
                 onPress={() => {
                     let state = loginUser({ name: inputValueName, password: inputValuePassword });
                     if (state === 'Logged in') {
-                        navigation.navigate('Home', { name: inputValueName });
+                        navigation.navigate('Menu', { name: inputValueName });
                         Alert.alert('Sesión iniciada');
                     } else {
                         Alert.alert('Usuario no encontrado, por favor verifique sus datos');

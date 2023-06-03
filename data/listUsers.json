@@ -15,19 +15,19 @@
         "id": 3,
         "name": "Carlos López",
         "password": "123",
-        "intelligence": "Lingüístico-verbal"
+        "intelligence": "Lingüístico-Verbal"
     },
     {
         "id": 4,
         "name": "Laura Rodríguez",
         "password": "123",
-        "intelligence": "Lógico-matemático"
+        "intelligence": "Lógico-Matemático"
     },
     {
         "id": 5,
         "name": "Andrés García",
         "password": "123",
-        "intelligence": "Corporal-cinestésico"
+        "intelligence": "Corporal-Cinestésico"
     },
     {
         "id": 6,

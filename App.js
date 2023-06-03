@@ -5,6 +5,7 @@ import LoginScreen from './src/components/LoginScreen';
 import HomeScreen from './src/components/HomeScreen';
 import ResultScreen from './src/components/ResultScreen';
 import MatchScreen from './src/components/MatchScreen';
+import MenuScreen from './src/components/MenuScreen';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
@@ -19,6 +20,11 @@ export default function App() {
           name="Login"
           options={{ title: "Inicio Sesión" }}
           component={LoginScreen}
+        />
+        <Screen
+          name="Menu"
+          options={{ title: "Menú" }}
+          component={MenuScreen}
         />
         <Screen
           name="Home"

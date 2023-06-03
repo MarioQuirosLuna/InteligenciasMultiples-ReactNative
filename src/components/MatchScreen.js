@@ -27,7 +27,7 @@ const MatchScreen = () => {
     return (
         <View style={styles.container}>
             <Text style={styles.title}>
-                Para {name} con inteligencia {intelligence}, se tienen estas coincidencias:
+                Para <Text style={styles.subtitle}>{name}</Text> con inteligencia <Text style={styles.subtitle}>{intelligence}</Text>, se tienen estas coincidencias:
             </Text>
             <View style={styles.containerTable}>
                 <View style={styles.tableRow}>
@@ -40,7 +40,7 @@ const MatchScreen = () => {
                     keyExtractor={(item, index) => index.toString()}
                 />
             </View>
-        </View>
+        </View >
     );
 };
 
@@ -52,9 +52,12 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: 20,
-        fontWeight: "bold",
         marginBottom: 20,
         textAlign: "center",
+    },
+    subtitle: {
+        fontSize: 24,
+        fontWeight: "bold",
     },
     containerTable: {
         borderWidth: 1,
