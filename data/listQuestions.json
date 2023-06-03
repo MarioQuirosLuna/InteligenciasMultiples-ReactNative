@@ -1,6 +1,6 @@
 [
     {
-        "id": 1,
+        "id": 0,
         "question": "¿Cuándo te encuentras en un nuevo entorno, ¿tiendes a memorizar rápidamente los detalles del lugar?",
         "options": [
             1,
@@ -11,7 +11,7 @@
         ]
     },
     {
-        "id": 2,
+        "id": 1,
         "question": "¿Disfrutas resolviendo rompecabezas o juegos de construcción?",
         "options": [
             1,
@@ -22,7 +22,7 @@
         ]
     },
     {
-        "id": 3,
+        "id": 2,
         "question": "¿Te consideras bueno/a en orientarte y encontrar tu camino en lugares desconocidos?",
         "options": [
             1,
@@ -33,7 +33,7 @@
         ]
     },
     {
-        "id": 4,
+        "id": 3,
         "question": "¿Disfrutas escuchando música de diversos géneros y estilos?",
         "options": [
             1,
@@ -44,7 +44,7 @@
         ]
     },
     {
-        "id": 5,
+        "id": 4,
         "question": "¿Eres capaz de recordar melodías fácilmente después de escucharlas?",
         "options": [
             1,
@@ -55,7 +55,7 @@
         ]
     },
     {
-        "id": 6,
+        "id": 5,
         "question": "¿Te sientes inspirado/a por la música y encuentras que influye en tu estado de ánimo?",
         "options": [
             1,
@@ -66,7 +66,7 @@
         ]
     },
     {
-        "id": 7,
+        "id": 6,
         "question": "¿Disfrutas leer libros y revistas en tu tiempo libre?",
         "options": [
             1,
@@ -77,7 +77,7 @@
         ]
     },
     {
-        "id": 8,
+        "id": 7,
         "question": "¿Tienes facilidad para explicar tus ideas y opiniones de manera clara y convincente?",
         "options": [
             1,
@@ -88,7 +88,7 @@
         ]
     },
     {
-        "id": 9,
+        "id": 8,
         "question": "¿Disfrutas participar en debates y conversaciones sobre temas de interés?",
         "options": [
             1,
@@ -99,7 +99,7 @@
         ]
     },
     {
-        "id": 10,
+        "id": 9,
         "question": "¿Encuentras satisfacción en resolver problemas matemáticos o lógicos?",
         "options": [
             1,
@@ -110,7 +110,7 @@
         ]
     },
     {
-        "id": 11,
+        "id": 10,
         "question": "¿Tiendes a pensar de manera analítica y disfrutas descomponer problemas en partes más pequeñas?",
         "options": [
             1,
@@ -121,7 +121,7 @@
         ]
     },
     {
-        "id": 12,
+        "id": 11,
         "question": "¿Te atraen los juegos de estrategia o rompecabezas que requieren pensamiento lógico?",
         "options": [
             1,
@@ -132,7 +132,7 @@
         ]
     },
     {
-        "id": 13,
+        "id": 12,
         "question": "¿Disfrutas practicar deportes o actividades físicas?",
         "options": [
             1,
@@ -143,7 +143,7 @@
         ]
     },
     {
-        "id": 14,
+        "id": 13,
         "question": "¿Tienes habilidad para realizar movimientos coordinados con tu cuerpo?",
         "options": [
             1,
@@ -154,7 +154,7 @@
         ]
     },
     {
-        "id": 15,
+        "id": 14,
         "question": "¿Te sientes más cómodo/a expresándote a través del movimiento y la acción que con palabras?",
         "options": [
             1,
@@ -165,7 +165,7 @@
         ]
     },
     {
-        "id": 16,
+        "id": 15,
         "question": "¿Disfrutas pasar tiempo a solas para reflexionar y conocerte mejor?",
         "options": [
             1,
@@ -176,7 +176,7 @@
         ]
     },
     {
-        "id": 17,
+        "id": 16,
         "question": "¿Eres consciente de tus fortalezas y debilidades personales?",
         "options": [
             1,
@@ -187,7 +187,7 @@
         ]
     },
     {
-        "id": 18,
+        "id": 17,
         "question": "¿Te gusta llevar un diario personal o escribir tus pensamientos y emociones?",
         "options": [
             1,
@@ -198,7 +198,7 @@
         ]
     },
     {
-        "id": 19,
+        "id": 18,
         "question": "¿Disfrutas trabajar en equipo y colaborar con otras personas?",
         "options": [
             1,
@@ -209,7 +209,7 @@
         ]
     },
     {
-        "id": 20,
+        "id": 19,
         "question": "¿Eres bueno/a para entender las emociones y sentimientos de los demás?",
         "options": [
             1,
@@ -220,7 +220,7 @@
         ]
     },
     {
-        "id": 21,
+        "id": 20,
         "question": "¿Disfrutas resolver conflictos y mediar en situaciones de tensión entre otras personas?",
         "options": [
             1,
@@ -231,7 +231,7 @@
         ]
     },
     {
-        "id": 22,
+        "id": 21,
         "question": "¿Te sientes atraído/a por la naturaleza y disfrutas pasar tiempo al aire libre?",
         "options": [
             1,
@@ -242,7 +242,7 @@
         ]
     },
     {
-        "id": 23,
+        "id": 22,
         "question": "¿Eres capaz de reconocer diferentes especies de plantas o animales?",
         "options": [
             1,
@@ -253,7 +253,7 @@
         ]
     },
     {
-        "id": 24,
+        "id": 23,
         "question": "¿Tienes facilidad para identificar patrones y relaciones en el entorno natural?",
         "options": [
             1,
@@ -264,7 +264,7 @@
         ]
     },
     {
-        "id": 25,
+        "id": 24,
         "question": "¿Te cuestionas frecuentemente el propósito y el significado de la vida?",
         "options": [
             1,
@@ -275,7 +275,7 @@
         ]
     },
     {
-        "id": 26,
+        "id": 25,
         "question": "¿Tienes interés en explorar preguntas filosóficas y trascendentales?",
         "options": [
             1,
@@ -286,7 +286,7 @@
         ]
     },
     {
-        "id": 27,
+        "id": 26,
         "question": "¿Te sientes atraído/a por la exploración de diferentes perspectivas sobre la existencia humana?",
         "options": [
             1,
@@ -297,7 +297,7 @@
         ]
     },
     {
-        "id": 28,
+        "id": 27,
         "question": "¿Disfrutas de actividades como el dibujo, la pintura o la escultura?",
         "options": [
             1,
@@ -308,7 +308,7 @@
         ]
     },
     {
-        "id": 29,
+        "id": 28,
         "question": "¿Encuentras satisfacción en encontrar soluciones novedosas a problemas o desafíos?",
         "options": [
             1,
@@ -319,7 +319,7 @@
         ]
     },
     {
-        "id": 30,
+        "id": 29,
         "question": "¿Te gusta experimentar con nuevas ideas y enfoques en tu vida diaria?",
         "options": [
             1,
@@ -330,7 +330,7 @@
         ]
     },
     {
-        "id": 31,
+        "id": 30,
         "question": "¿Eres consciente de tus propias emociones y las manejas de manera adecuada?",
         "options": [
             1,
@@ -341,7 +341,7 @@
         ]
     },
     {
-        "id": 32,
+        "id": 31,
         "question": "¿Tienes empatía y capacidad para comprender las emociones de los demás?",
         "options": [
             1,
@@ -352,7 +352,7 @@
         ]
     },
     {
-        "id": 33,
+        "id": 32,
         "question": "¿Disfrutas expresar tus sentimientos a través del arte, la música o la escritura?",
         "options": [
             1,
@@ -363,7 +363,7 @@
         ]
     },
     {
-        "id": 34,
+        "id": 33,
         "question": "¿Te sientes cómodo/a trabajando en equipo y compartiendo responsabilidades?",
         "options": [
             1,
@@ -374,7 +374,7 @@
         ]
     },
     {
-        "id": 35,
+        "id": 34,
         "question": "¿Eres hábil para establecer relaciones de confianza y colaboración con otras personas?",
         "options": [
             1,
@@ -385,7 +385,7 @@
         ]
     },
     {
-        "id": 36,
+        "id": 35,
         "question": "¿Disfrutas coordinar y organizar actividades en grupo?",
         "options": [
             1,
