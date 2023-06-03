@@ -25,7 +25,7 @@ const useIntelligences = () => {
         loadIntelligences();
     }, []);
 
-    return { questions: intelligences };
+    return { intelligences };
 };
 
 export default useIntelligences;

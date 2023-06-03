@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
     ActivityIndicator,
     StyleSheet,
@@ -9,14 +9,37 @@ import { useRoute } from "@react-navigation/native";
 import useQuestions from "../hooks/useQuestions";
 import Question from "./Question";
 import Navigate from "./Navigate";
+import ModalComponent from "./ModalComponent";
+import useEuclides from "../hooks/useEuclides";
+import useIntelligences from "../hooks/useIntelligences";
 
 const HomeScreen = () => {
     const route = useRoute();
     const { name } = route.params;
-
     const { questions } = useQuestions();
+    const { intelligences } = useIntelligences();
+    const { intelligence, fillVectorsWithEuclidesResults } = useEuclides();
     const [selectedOptions, setSelectedOptions] = useState([]);
     const [currentQuestion, setCurrentQuestion] = useState(0);
+
+    const addAnswer = (questionId, answerValue) => {
+        const newSelectedOptions = [...selectedOptions];
+        newSelectedOptions[questionId] = answerValue;
+        setSelectedOptions(newSelectedOptions);
+    }
+
+    const calculateEuclides = () => {
+        const euclidesResults = fillVectorsWithEuclidesResults(intelligences, selectedOptions);
+        return euclidesResults;
+    }
+
+    useEffect(() => {
+        setSelectedOptions(new Array(36).fill(-1));
+    }, []);
+
+    useEffect(() => {
+        calculateEuclides()
+    }, [intelligences]);
 
     return (
         <View style={styles.container}>
@@ -25,7 +48,11 @@ const HomeScreen = () => {
                 Responda pensando en qué tan identificado se siente con la pregunta, donde 1 es nada y 5 demasiado.
             </Text>
             {questions.length > 0 ? (
-                <Question question={questions[currentQuestion]} />
+                <Question
+                    question={questions[currentQuestion]}
+                    addAnswer={addAnswer}
+                    selectedOptions={selectedOptions}
+                />
             ) : (
                 <ActivityIndicator size="large" />
             )}
@@ -35,6 +62,7 @@ const HomeScreen = () => {
                     setCurrentQuestion={setCurrentQuestion}
                 />
             </View>
+            <ModalComponent text={calculateEuclides()} />
         </View>
     );
 };
@@ -47,6 +75,7 @@ const styles = StyleSheet.create({
         paddingTop: 40,
         paddingHorizontal: 20,
         backgroundColor: "#ffffff",
+        paddingBottom: 20,
     },
     title: {
         fontSize: 24,
