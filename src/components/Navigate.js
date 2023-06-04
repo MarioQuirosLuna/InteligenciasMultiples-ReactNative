@@ -34,19 +34,21 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         justifyContent: 'space-between',
-        marginTop: 20,
-        paddingHorizontal: 40,
+        paddingHorizontal: 60,
+        backgroundColor: 'rgba(13, 79, 139, 0.4)',
+        paddingVertical: 30,
     },
     button: {
-        backgroundColor: '#4287f5',
-        borderRadius: 8,
+        backgroundColor: '#0D4F8B',
+        borderRadius: 50,
         paddingVertical: 10,
         paddingHorizontal: 20,
         marginHorizontal: 10,
+
     },
     buttonText: {
         color: '#ffffff',
-        fontSize: 16,
+        fontSize: 20,
         fontWeight: 'bold',
         textAlign: 'center',
     },

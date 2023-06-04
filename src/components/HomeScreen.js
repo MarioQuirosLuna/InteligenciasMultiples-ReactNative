@@ -59,7 +59,7 @@ const HomeScreen = () => {
                 <ActivityIndicator size="large" />
             )}
             <View style={styles.navigateContainer}>
-                <Navigate
+                <Navigate 
                     currentQuestion={currentQuestion}
                     setCurrentQuestion={setCurrentQuestion}
                     selectedOptions={selectedOptions}
@@ -101,15 +101,18 @@ const styles = StyleSheet.create({
         paddingHorizontal: 20,
         backgroundColor: "#ffffff",
         paddingBottom: 20,
+        backgroundColor: 'rgba(250, 250, 250, 0.1)'
     },
     title: {
         fontSize: 24,
         fontWeight: "bold",
         marginBottom: 20,
+        textAlign: "center",
     },
     subtitle: {
-        fontSize: 16,
+        fontSize: 20,
         marginBottom: 20,
+        textAlign: "justify",
     },
     questionContainer: {
         flex: 1,
@@ -120,10 +123,11 @@ const styles = StyleSheet.create({
     },
     button: {
         alignSelf: 'center',
-        borderRadius: 10,
+        borderRadius: 50,
         paddingVertical: 15,
         paddingHorizontal: 40,
         marginTop: 20,
+        backgroundColor: '#0D4F8B',
     },
     buttonText: {
         textAlign: 'center',
