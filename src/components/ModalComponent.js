@@ -3,7 +3,6 @@ import { StyleSheet } from 'react-native';
 import { View, Text, Modal, Dimensions } from 'react-native';
 import { Button, Image } from 'react-native-elements';
 
-const windowWidth = Dimensions.get('window').width;
 const windowHeigth = Dimensions.get('window').height;
 
 const ModalComponent = ({ title, text, modalVisible, setModalVisible }) => {
@@ -39,7 +38,6 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: 'rgba(0, 0, 5, 0.9)',
-
         height: windowHeigth ,
         padding: 30,
     },

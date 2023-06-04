@@ -1,20 +1,24 @@
 import { useState } from 'react';
-import { Alert, StyleSheet, Text, TextInput, View, } from 'react-native';
-import { Button } from 'react-native-elements';
+import { Alert, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, Image } from 'react-native-elements';
 
 import { useNavigation } from '@react-navigation/native';
 import useUser from '../hooks/useUser.js';
-
+import ModalComponent from './ModalComponent.js';
 
 const LoginScreen = ({ }) => {
     const [inputValueName, setInputValueName] = useState("");
     const [inputValuePassword, setInputValuePassword] = useState("");
+    const [modalVisible, setModalVisible] = useState(false);
+    const [modalText, setModalText] = useState('');
+    const [modalTitle, setModalTitle] = useState('');
     const navigation = useNavigation();
 
     const { loginUser, createUser, resetUsers } = useUser();
 
     return (
         <View style={styles.container}>
+            <Image source={require('../../assets/images/neural.png')} style={styles.image} />
             <Text style={styles.title}>Inteligencias Múltiples</Text>
             <TextInput
                 style={styles.textInput}
@@ -42,7 +46,9 @@ const LoginScreen = ({ }) => {
                         navigation.navigate('Menu', { name: inputValueName });
                         Alert.alert('Sesión iniciada');
                     } else {
-                        Alert.alert('Usuario no encontrado, por favor verifique sus datos');
+                        setModalVisible(true);
+                        setModalText('Usuario o contraseña incorrectos');
+                        setModalTitle('Error');
                     }
                 }}
             />
@@ -70,6 +76,12 @@ const LoginScreen = ({ }) => {
                     Alert.alert('Datos reestablecidos exitosamente');
                 }}
             />
+            <ModalComponent
+                title={modalTitle}
+                text={modalText}
+                modalVisible={modalVisible}
+                setModalVisible={setModalVisible}
+            />
         </View>
     );
 };
@@ -79,11 +91,20 @@ const styles = StyleSheet.create({
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        marginTop: 50,
+        margin: 50,
+        padding: 20,
+        borderRadius: 20,
+        
+    },
+    image: {
+        width: 100,
+        height: 100,
     },
     title: {
-        fontSize: 20,
+        fontSize: 40,
         fontWeight: "bold",
+        textAlign: "center",
+        marginBottom: 30,
     },
     textInput: {
         width: "85%",
@@ -91,6 +112,7 @@ const styles = StyleSheet.create({
         fontSize: 18,
         margin: 10,
         borderRadius: 10,
+        borderColor: "#0D4F8B",
         padding: 10,
     },
     label: {
@@ -99,10 +121,11 @@ const styles = StyleSheet.create({
     },
     button: {
         alignSelf: 'center',
-        borderRadius: 10,
+        borderRadius: 50,
         paddingVertical: 15,
         paddingHorizontal: 40,
         marginTop: 20,
+        backgroundColor: '#0D4F8B',
     },
     buttonText: {
         textAlign: 'center',
