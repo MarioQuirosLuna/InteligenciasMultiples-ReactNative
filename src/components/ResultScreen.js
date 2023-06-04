@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import {
-    ActivityIndicator,
     StyleSheet,
     Text,
     View,
@@ -70,6 +69,14 @@ const ResultScreen = () => {
                 titleStyle={styles.buttonText}
                 onPress={() => {
                     navigation.navigate("Match", { name: name, usersMatches: searchUserMatches(name, intelligence, subIntelligence) });
+                }}
+            />
+            <Button
+                title="Cerrar Sesión"
+                buttonStyle={styles.button}
+                titleStyle={styles.buttonText}
+                onPress={() => {
+                    navigation.navigate("Login");
                 }}
             />
         </View>
