@@ -44,10 +44,9 @@ const LoginScreen = ({ }) => {
                     let state = loginUser({ name: inputValueName, password: inputValuePassword });
                     if (state === 'Logged in') {
                         navigation.navigate('Menu', { name: inputValueName });
-                        Alert.alert('Sesión iniciada');
                     } else {
                         setModalVisible(true);
-                        setModalText('Usuario o contraseña incorrectos');
+                        setModalText('Usuario o contraseña incorrectos, verifique sus datos.');
                         setModalTitle('Error');
                     }
                 }}
@@ -59,10 +58,14 @@ const LoginScreen = ({ }) => {
                 onPress={() => {
                     let state = createUser({ name: inputValueName, password: inputValuePassword });
                     if (state === 'User created') {
-                        Alert.alert('Usuario creado exitosamente');
+                        setModalVisible(true);
+                        setModalText('Usuario creado correctamente.');
+                        setModalTitle('Éxito');
                     } else {
                         if (state === 'User already exists') {
-                            Alert.alert('El nombre de usuario ya existe, por favor seleccione otro');
+                            setModalVisible(true);
+                            setModalText('El nombre de usuario ya existe, por favor seleccione otro.');
+                            setModalTitle('Error');
                         }
                     }
                 }}
@@ -73,7 +76,9 @@ const LoginScreen = ({ }) => {
                 titleStyle={styles.buttonText}
                 onPress={() => {
                     resetUsers();
-                    Alert.alert('Datos reestablecidos exitosamente');
+                    setModalVisible(true);
+                            setModalText('Datos reestablecidos exitosamente.');
+                            setModalTitle('Éxito');
                 }}
             />
             <ModalComponent
@@ -94,7 +99,7 @@ const styles = StyleSheet.create({
         margin: 50,
         padding: 20,
         borderRadius: 20,
-        
+
     },
     image: {
         width: 100,
