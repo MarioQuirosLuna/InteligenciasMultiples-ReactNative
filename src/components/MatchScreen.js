@@ -5,12 +5,15 @@ import {
     Text,
     View,
 } from "react-native";
-import { useRoute } from "@react-navigation/native";
+import { useNavigation, useRoute } from "@react-navigation/native";
 import useUser from '../hooks/useUser.js';
+import { Button } from "react-native-elements";
 
 const MatchScreen = () => {
     const route = useRoute();
     const { name, usersMatches } = route.params;
+
+    const navigation = useNavigation();
 
     const { getUserIntelligence, getUserSubIntelligence } = useUser();
 
@@ -42,6 +45,14 @@ const MatchScreen = () => {
                     keyExtractor={(item, index) => index.toString()}
                 />
             </View>
+            <Button
+                title="Cerrar Sesión"
+                buttonStyle={styles.button}
+                titleStyle={styles.buttonText}
+                onPress={() => {
+                    navigation.navigate("Login");
+                }}
+            />
         </View >
     );
 };
