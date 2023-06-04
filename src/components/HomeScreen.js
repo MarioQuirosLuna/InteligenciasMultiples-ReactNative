@@ -11,7 +11,6 @@ import { useNavigation } from '@react-navigation/native';
 import useQuestions from "../hooks/useQuestions";
 import Question from "./Question";
 import Navigate from "./Navigate";
-import ModalComponent from "./ModalComponent";
 import useEuclides from "../hooks/useEuclides";
 import useIntelligences from "../hooks/useIntelligences";
 import useUser from "../hooks/useUser";
