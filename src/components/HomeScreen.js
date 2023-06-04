@@ -63,6 +63,7 @@ const HomeScreen = () => {
                 <Navigate
                     currentQuestion={currentQuestion}
                     setCurrentQuestion={setCurrentQuestion}
+                    selectedOptions={selectedOptions}
                 />
             </View>
             {currentQuestion === 35 && verifyAllValuesAdded(selectedOptions) ? (
