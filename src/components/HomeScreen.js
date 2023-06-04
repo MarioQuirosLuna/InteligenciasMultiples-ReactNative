@@ -6,7 +6,7 @@ import {
     View,
 } from "react-native";
 import { useRoute } from "@react-navigation/native";
-import { Button } from 'react-native-elements';
+import { Button, Image } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
 import useQuestions from "../hooks/useQuestions";
 import Question from "./Question";
@@ -45,7 +45,10 @@ const HomeScreen = () => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Hola {name}</Text>
+            <View style={styles.header}>
+                <Image source={require('../../assets/images/neural.png')} style={styles.image} />
+                <Text style={styles.title}>Hola {name}</Text>
+            </View>
             <Text style={styles.subtitle}>
                 Por favor responda pensando en qué tan identificado se siente con la pregunta, donde 1 es nada y 5 demasiado.
             </Text>
@@ -59,7 +62,7 @@ const HomeScreen = () => {
                 <ActivityIndicator size="large" />
             )}
             <View style={styles.navigateContainer}>
-                <Navigate 
+                <Navigate
                     currentQuestion={currentQuestion}
                     setCurrentQuestion={setCurrentQuestion}
                     selectedOptions={selectedOptions}
@@ -97,18 +100,25 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "flex-start",
         alignItems: "center",
-        paddingTop: 40,
-        paddingHorizontal: 20,
+        paddingVertical: 40,
+        paddingHorizontal: 10,
         backgroundColor: "#ffffff",
-        paddingBottom: 20,
-        backgroundColor: 'rgba(250, 250, 250, 0.1)'
+    },
+    header: {
+        flexDirection: "row",
+        flexWrap: "wrap",
+        justifyContent: "space-between",
+    },
+    image: {
+        width: 40,
+        height: 40,
+        marginHorizontal: 10,
     },
     title: {
-        fontSize: 24,
+        fontSize: 30,
         fontWeight: "bold",
         marginBottom: 20,
         textAlign: "center",
-        color: "#0D4F8B",
     },
     subtitle: {
         fontSize: 20,

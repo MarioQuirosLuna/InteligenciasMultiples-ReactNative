@@ -1,5 +1,6 @@
 import React from "react";
 import {
+    Dimensions,
     FlatList,
     StyleSheet,
     Text,
@@ -8,6 +9,8 @@ import {
 import { useNavigation, useRoute } from "@react-navigation/native";
 import useUser from '../hooks/useUser.js';
 import { Button, Image } from "react-native-elements";
+
+let windowHeigth = Dimensions.get('window').height;
 
 const MatchScreen = () => {
     const route = useRoute();
@@ -64,7 +67,7 @@ const styles = StyleSheet.create({
         flex: 1,
         padding: 10,
         backgroundColor: "#ffffff",
-        paddingVertical: 20,
+        paddingVertical: windowHeigth * 0.05,
     },
     imageContainer: {
         width: "100%",
@@ -113,6 +116,19 @@ const styles = StyleSheet.create({
         flex: 1,
         fontSize: 11,
         textAlign: "center",
+    },
+    button: {
+        alignSelf: 'center',
+        borderRadius: 50,
+        paddingVertical: 15,
+        paddingHorizontal: 40,
+        marginTop: 40,
+        backgroundColor: '#0D4F8B',
+    },
+    buttonText: {
+        textAlign: 'center',
+        fontSize: 18,
+        fontWeight: 'bold',
     },
 });
 

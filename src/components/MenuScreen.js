@@ -46,13 +46,12 @@ const styles = StyleSheet.create({
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 50,
+        marginTop: 100,
         height: windowHeigth/1.5,
-        padding: 30,
     },
     image: {
-        width: 100,
-        height: 100,
+        width: 120,
+        height: 120,
         marginBottom: 10,
     },
     title: {

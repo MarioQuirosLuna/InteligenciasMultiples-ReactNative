@@ -15,7 +15,9 @@ const Question = ({ question, addAnswer, selectedOptions }) => {
     const showSelectedOptions = (questionId, optionNumber) => {
         if (selectedOptions[questionId] === optionNumber) {
             return (
-                { backgroundColor: "#00ff00" }
+                {
+                    backgroundColor: 'rgba(13, 79, 139, 0.6)',
+                }
             )
         }
     }
@@ -44,20 +46,19 @@ const Question = ({ question, addAnswer, selectedOptions }) => {
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
-        backgroundColor: 'rgba(13, 79, 139, 0.2)',
+        backgroundColor: 'rgba(13, 79, 139, 0.3)',
         width: windowWidth,
     },
     image: {
-        width: 50,
-        height: 50,
-        marginBottom: 20,
+        width: 60,
+        height: 60,
+        marginBottom: 10,
     },
     questionContainer: {
         borderRadius: 8,
         paddingVertical: 20,
         paddingHorizontal: 20,
-        marginTop: 20,
-        marginBottom: 20,
+        marginTop: 10,
         width: windowWidth,
         minHeight: 200,
         justifyContent: "center",
