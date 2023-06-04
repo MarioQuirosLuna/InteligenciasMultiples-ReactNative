@@ -69,7 +69,6 @@ const ResultScreen = () => {
                 buttonStyle={styles.button}
                 titleStyle={styles.buttonText}
                 onPress={() => {
-                    alert(name + " tiene inteligencia " + intelligence + " y subinteligencia " + subIntelligence + ".");
                     navigation.navigate("Match", { name: name, usersMatches: searchUserMatches(name, intelligence, subIntelligence) });
                 }}
             />
