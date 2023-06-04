@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import {
-    ActivityIndicator,
     FlatList,
     StyleSheet,
     Text,

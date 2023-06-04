@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Alert, StyleSheet, Text, TextInput, View } from 'react-native';
+import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { Button, Image } from 'react-native-elements';
 
 import { useNavigation } from '@react-navigation/native';
@@ -14,7 +14,7 @@ const LoginScreen = ({ }) => {
     const [modalTitle, setModalTitle] = useState('');
     const navigation = useNavigation();
 
-    const { loginUser, createUser, resetUsers } = useUser();
+    const { loginUser, createUser, deleteUserAccount } = useUser();
 
     return (
         <View style={styles.container}>
@@ -41,12 +41,18 @@ const LoginScreen = ({ }) => {
                 buttonStyle={styles.button}
                 titleStyle={styles.buttonText}
                 onPress={() => {
-                    let state = loginUser({ name: inputValueName, password: inputValuePassword });
-                    if (state === 'Logged in') {
-                        navigation.navigate('Menu', { name: inputValueName });
+                    if (inputValueName && inputValuePassword && inputValueName !== '' && inputValuePassword !== '') {
+                        let state = loginUser({ name: inputValueName, password: inputValuePassword });
+                        if (state === 'Logged in') {
+                            navigation.navigate('Menu', { name: inputValueName });
+                        } else {
+                            setModalVisible(true);
+                            setModalText('Usuario o contraseña incorrectos, verifique sus datos.');
+                            setModalTitle('Error');
+                        }
                     } else {
                         setModalVisible(true);
-                        setModalText('Usuario o contraseña incorrectos, verifique sus datos.');
+                        setModalText('Debe ingresar un nombre de usuario y contraseña.');
                         setModalTitle('Error');
                     }
                 }}
@@ -56,29 +62,47 @@ const LoginScreen = ({ }) => {
                 buttonStyle={styles.button}
                 titleStyle={styles.buttonText}
                 onPress={() => {
-                    let state = createUser({ name: inputValueName, password: inputValuePassword });
-                    if (state === 'User created') {
-                        setModalVisible(true);
-                        setModalText('Usuario creado correctamente.');
-                        setModalTitle('Éxito');
-                    } else {
-                        if (state === 'User already exists') {
+                    if (inputValueName && inputValuePassword && inputValueName !== '' && inputValuePassword !== '') {
+                        let state = createUser({ name: inputValueName, password: inputValuePassword });
+                        if (state === 'User created') {
                             setModalVisible(true);
-                            setModalText('El nombre de usuario ya existe, por favor seleccione otro.');
-                            setModalTitle('Error');
+                            setModalText('Usuario creado correctamente.');
+                            setModalTitle('Éxito');
+                        } else {
+                            if (state === 'User already exists') {
+                                setModalVisible(true);
+                                setModalText('El nombre de usuario ya existe, por favor seleccione otro.');
+                                setModalTitle('Error');
+                            }
                         }
+                    } else {
+                        setModalVisible(true);
+                        setModalText('Debe ingresar un nombre de usuario y contraseña.');
+                        setModalTitle('Error');
                     }
                 }}
             />
             <Button
-                title="Resetear"
+                title="Eliminar Cuenta"
                 buttonStyle={styles.button}
                 titleStyle={styles.buttonText}
                 onPress={() => {
-                    resetUsers();
-                    setModalVisible(true);
-                            setModalText('Datos reestablecidos exitosamente.');
+                    if (inputValueName && inputValuePassword && inputValueName !== '' && inputValuePassword !== '') {
+                        const response = deleteUserAccount({ name: inputValueName, password: inputValuePassword });
+                        if (response) {
+                            setModalVisible(true);
+                            setModalText('Usuario eliminado correctamente.');
                             setModalTitle('Éxito');
+                        } else {
+                            setModalVisible(true);
+                            setModalText('Usuario o contraseña incorrectos, verifique sus datos.');
+                            setModalTitle('Error');
+                        }
+                    } else {
+                        setModalVisible(true);
+                        setModalText('Debe ingresar un nombre de usuario y contraseña.');
+                        setModalTitle('Error');
+                    }
                 }}
             />
             <ModalComponent
