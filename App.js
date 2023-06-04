@@ -33,12 +33,12 @@ export default function App() {
         />
         <Screen
           name="Result"
-          options={{ title: "Resultado Inteligencias Múltiples" }}
+          options={{ title: "Resultado" }}
           component={ResultScreen}
         />
         <Screen
           name="Match"
-          options={{ title: "Coincidencias de Inteligencias Múltiples" }}
+          options={{ title: "Coincidencias" }}
           component={MatchScreen}
         />
       </Navigator>
