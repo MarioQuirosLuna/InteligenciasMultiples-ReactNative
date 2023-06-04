@@ -45,9 +45,9 @@ const HomeScreen = () => {
 
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>Bienvenido(a) {name}</Text>
+            <Text style={styles.title}>Hola {name}</Text>
             <Text style={styles.subtitle}>
-                Responda pensando en qué tan identificado se siente con la pregunta, donde 1 es nada y 5 demasiado.
+                Por favor responda pensando en qué tan identificado se siente con la pregunta, donde 1 es nada y 5 demasiado.
             </Text>
             {questions.length > 0 ? (
                 <Question
@@ -108,6 +108,7 @@ const styles = StyleSheet.create({
         fontWeight: "bold",
         marginBottom: 20,
         textAlign: "center",
+        color: "#0D4F8B",
     },
     subtitle: {
         fontSize: 20,
@@ -126,7 +127,8 @@ const styles = StyleSheet.create({
         borderRadius: 50,
         paddingVertical: 15,
         paddingHorizontal: 40,
-        marginTop: 20,
+        marginTop: 10,
+        marginBottom: 10,
         backgroundColor: '#0D4F8B',
     },
     buttonText: {

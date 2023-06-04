@@ -44,7 +44,8 @@ const Question = ({ question, addAnswer, selectedOptions }) => {
 const styles = StyleSheet.create({
     screen: {
         flex: 1,
-        backgroundColor: 'rgba(13, 79, 139, 0.2)'
+        backgroundColor: 'rgba(13, 79, 139, 0.2)',
+        width: windowWidth,
     },
     image: {
         width: 50,
@@ -70,13 +71,13 @@ const styles = StyleSheet.create({
     optionsContainer: {
         flexDirection: "row",
         flexWrap: "wrap",
-        justifyContent: "space-around",
+        justifyContent: "space-evenly",
     },
     optionButton: {
         backgroundColor: "#0D4F8B",
         borderRadius: 8,
         paddingVertical: 10,
-        paddingHorizontal: 20,
+        paddingHorizontal: windowWidth / 15,
         marginBottom: 10,
         borderRadius: 50,
     },

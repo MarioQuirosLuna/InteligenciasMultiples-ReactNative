@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
-import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet, Dimensions } from 'react-native';
+
+const windowWidth= Dimensions.get('window').width;
 
 const Navigate = ({ currentQuestion, setCurrentQuestion, selectedOptions }) => {
 
@@ -33,10 +35,11 @@ const Navigate = ({ currentQuestion, setCurrentQuestion, selectedOptions }) => {
 const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
-        justifyContent: 'space-between',
+        justifyContent: 'space-evenly',
         paddingHorizontal: 60,
         backgroundColor: 'rgba(13, 79, 139, 0.4)',
         paddingVertical: 30,
+        width: windowWidth,
     },
     button: {
         backgroundColor: '#0D4F8B',
