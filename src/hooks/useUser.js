@@ -72,12 +72,21 @@ const useUser = () => {
         }
     }
 
-    const setUserIntelligence = (name, newInelligence) => {
+    const getUserSubIntelligence = (name) => {
+        const existingUser = users.find((existingUser) => existingUser.name === name);
+
+        if (existingUser) {
+            return existingUser.subIntelligence;
+        }
+    }
+
+    const setUserIntelligence = (name, newIntelligence, newSubIntelligence) => {
         const index = users.findIndex((user) => user.name === name);
 
         if (index !== -1) {
             const updateUsers = [...users];
-            updateUsers[index].intelligence = newInelligence;
+            updateUsers[index].intelligence = newIntelligence;
+            updateUsers[index].subIntelligence = newSubIntelligence;
             setUsers(updateUsers);
         }
     }
@@ -88,25 +97,42 @@ const useUser = () => {
         if (existingUser) {
             return 'User already exists';
         } else {
-            const newUser = { id: generate(), name: user.name, password: user.password, intelligence: 'default' };
+            const newUser = { id: generate(), name: user.name, password: user.password, intelligence: 'default', subIntelligence: 'default' };
             setUsers([...users, newUser]);
             return 'User created';
         }
     };
 
-    const searchUserMatches = (nameUser, intelligenceUser) => {
+    const searchUserMatches = (nameUser, intelligenceUser, subIntelligence) => {
         const matches = [];
         for (let i = 0; i < users.length; i++) {
             if (users[i].name !== nameUser) {
-                if (users[i].intelligence === intelligenceUser) {
+                if (
+                    users[i].intelligence === intelligenceUser ||
+                    users[i].intelligence === subIntelligence ||
+                    users[i].subIntelligence === intelligenceUser
+                ) {
                     matches.push(users[i]);
                 }
             }
         }
+
+        matches.sort((a, b) => {
+            if (a.intelligence === intelligenceUser || a.intelligence === subIntelligence &&
+                b.intelligence !== intelligenceUser) {
+                return -1;
+            } else if (a.intelligence !== intelligenceUser &&
+                b.intelligence === intelligenceUser || b.intelligence === subIntelligence) {
+                return 1;
+            } else {
+                return a.intelligence.localeCompare(b.intelligence);
+            }
+        });
+
         return matches;
     }
 
-    return { users: users, loginUser, createUser, getUserIntelligence, setUserIntelligence, searchUserMatches, resetUsers };
+    return { users: users, loginUser, createUser, getUserIntelligence, getUserSubIntelligence, setUserIntelligence, searchUserMatches, resetUsers };
 }
 
 export default useUser;

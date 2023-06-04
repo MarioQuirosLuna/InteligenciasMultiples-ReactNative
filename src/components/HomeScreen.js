@@ -35,11 +35,6 @@ const HomeScreen = () => {
         setSelectedOptions(newSelectedOptions);
     }
 
-    const calculateEuclides = () => {
-        const euclidesResultIntelligence = findClosestIntelligenceWithEuclides(intelligences, selectedOptions);
-        return euclidesResultIntelligence;
-    }
-
     const verifyAllValuesAdded = (array) => {
         return array.every((value) => value !== -1);
     }
@@ -68,6 +63,7 @@ const HomeScreen = () => {
                 <Navigate
                     currentQuestion={currentQuestion}
                     setCurrentQuestion={setCurrentQuestion}
+                    selectedOptions={selectedOptions}
                 />
             </View>
             {currentQuestion === 35 && verifyAllValuesAdded(selectedOptions) ? (
@@ -76,7 +72,8 @@ const HomeScreen = () => {
                     buttonStyle={styles.button}
                     titleStyle={styles.buttonText}
                     onPress={() => {
-                        setUserIntelligence(name, findClosestIntelligenceWithEuclides(intelligences, selectedOptions));
+                        const closesIntelligences = findClosestIntelligenceWithEuclides(intelligences, selectedOptions)
+                        setUserIntelligence(name, closesIntelligences[0], closesIntelligences[1]);
                         navigation.navigate("Result", { name: name, });
                     }}
                 />
@@ -86,7 +83,8 @@ const HomeScreen = () => {
                     buttonStyle={styles.button}
                     titleStyle={styles.buttonText}
                     onPress={() => {
-                        setUserIntelligence(name, findClosestIntelligenceWithRandomEuclides(intelligences, selectedOptions));
+                        const closesIntelligences = findClosestIntelligenceWithRandomEuclides(intelligences, selectedOptions)
+                        setUserIntelligence(name, closesIntelligences[0], closesIntelligences[1]);
                         navigation.navigate("Result", { name: name, });
                     }}
                 />

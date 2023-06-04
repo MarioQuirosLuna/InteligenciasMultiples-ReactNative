@@ -2,38 +2,48 @@
 const useEuclides = () => {
 
     const findClosestIntelligenceWithEuclides = (intelligencesVector, userVector) => {
-        let minEuclides = Infinity;
-        let minIntelligence = null;
+        let minEuclides = [Infinity, Infinity];
+        let minIntelligences = [null, null];
 
         intelligencesVector.forEach((intelligenceVector, index) => {
             const euclides = calcEuclides(index, intelligenceVector, userVector);
 
-            if (euclides < minEuclides) {
-                minEuclides = euclides;
-                minIntelligence = intelligenceVector.intelligence;
+            if (euclides < minEuclides[0]) {
+                minEuclides[1] = minEuclides[0];
+                minIntelligences[1] = minIntelligences[0];
+                minEuclides[0] = euclides;
+                minIntelligences[0] = intelligenceVector.intelligence;
+            } else if (euclides < minEuclides[1]) {
+                minEuclides[1] = euclides;
+                minIntelligences[1] = intelligenceVector.intelligence;
             }
         });
 
-        return minIntelligence;
+        return minIntelligences;
     }
 
     const findClosestIntelligenceWithRandomEuclides = (intelligencesVector, userVector) => {
         userVector = userVector.map(() => {
             return Math.floor(Math.random() * 5) + 1;
         });
-        let minEuclides = Infinity;
-        let minIntelligence = null;
+        let minEuclides = [Infinity, Infinity];
+        let minIntelligences = [null, null];
 
         intelligencesVector.forEach((intelligenceVector, index) => {
             const euclides = calcEuclides(index, intelligenceVector, userVector);
 
-            if (euclides < minEuclides) {
-                minEuclides = euclides;
-                minIntelligence = intelligenceVector.intelligence;
+            if (euclides < minEuclides[0]) {
+                minEuclides[1] = minEuclides[0];
+                minIntelligences[1] = minIntelligences[0];
+                minEuclides[0] = euclides;
+                minIntelligences[0] = intelligenceVector.intelligence;
+            } else if (euclides < minEuclides[1]) {
+                minEuclides[1] = euclides;
+                minIntelligences[1] = intelligenceVector.intelligence;
             }
         });
 
-        return minIntelligence;
+        return minIntelligences;
     }
 
     const calcEuclides = (index, intelligenceVector, userVector) => {

@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 
-const Navigate = ({ currentQuestion, setCurrentQuestion }) => {
+const Navigate = ({ currentQuestion, setCurrentQuestion, selectedOptions }) => {
 
     const goToNextQuestion = () => {
-        if (currentQuestion < 35) {
+        if (currentQuestion < 35 && selectedOptions[currentQuestion] !== -1) {
             setCurrentQuestion(prevQuestion => prevQuestion + 1);
         }
     };
@@ -21,7 +21,10 @@ const Navigate = ({ currentQuestion, setCurrentQuestion }) => {
                 <Text style={styles.buttonText}> Anterior </Text>
             </TouchableOpacity>
             <TouchableOpacity style={styles.button} onPress={goToNextQuestion}>
-                <Text style={styles.buttonText}>Siguiente</Text>
+                {selectedOptions[currentQuestion] !== -1 ?
+                    <Text style={styles.buttonText}>Siguiente </Text>
+                    : <Text style={styles.buttonText}>Esperando</Text>
+                }
             </TouchableOpacity>
         </View>
     );
