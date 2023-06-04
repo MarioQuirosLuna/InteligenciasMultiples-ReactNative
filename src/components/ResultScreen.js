@@ -5,7 +5,7 @@ import {
     View,
 } from "react-native";
 import { useRoute } from "@react-navigation/native";
-import { Button } from 'react-native-elements';
+import { Button, Image } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
 import useUser from '../hooks/useUser.js';
 
@@ -19,13 +19,47 @@ const ResultScreen = () => {
     let intelligence = getUserIntelligence(name);
     let subIntelligence = getUserSubIntelligence(name);
 
+    const images = {
+        Espacial: require('../../assets/images/Espacial.png'),
+        Musical: require('../../assets/images/Musical.png'),
+        Lingüístico: require('../../assets/images/Lingüístico-Verbal.png'),
+        Lógico: require('../../assets/images/Lógico-Matemático.png'),
+        Corporal: require('../../assets/images/Corporal-Cinestésico.png'),
+        Intrapersonal: require('../../assets/images/Intrapersonal.png'),
+        Interpersonal: require('../../assets/images/Interpersonal.png'),
+        Naturalista: require('../../assets/images/Naturalista.png'),
+        Existencial: require('../../assets/images/Existencial.png'),
+        Creativo: require('../../assets/images/Creativo.png'),
+        Emocional: require('../../assets/images/Emocional.png'),
+        Colaborativo: require('../../assets/images/Colaborativo.png'),
+    };
+
+    let separatedIntelligence = "";
+    let separatedSubIntelligence = "";
+
+    if (intelligence == "Lingüístico-Verbal" || intelligence == "Lógico-Matemático" || intelligence == "Corporal-Cinestésico") {
+        const separatedTextIntelligence = intelligence.split('-');
+        separatedIntelligence = separatedTextIntelligence[0];
+    } else {
+        separatedIntelligence = intelligence;
+    }
+
+    if (subIntelligence == "Lingüístico-Verbal" || subIntelligence == "Lógico-Matemático" || subIntelligence == "Corporal-Cinestésico") {
+        const separatedTextSubIntelligence = subIntelligence.split('-');
+        separatedSubIntelligence = separatedTextSubIntelligence[0];
+    } else {
+        separatedSubIntelligence = subIntelligence;
+    }
+
     return (
         <View style={styles.container}>
-            <Text style={styles.title}>La inteligencia de {name} es:</Text>
+            <Text style={styles.title}>{name} tiene inteligencia</Text>
+            <Image source={images[separatedIntelligence]} style={styles.image} />
             <Text style={styles.subtitle}>
                 {intelligence}
             </Text>
-            <Text style={styles.title}>Y la subinteligencia es:</Text>
+            <Text style={styles.title}>y subinteligencia</Text>
+            <Image source={images[separatedSubIntelligence]} style={styles.image} />
             <Text style={styles.subtitle}>
                 {subIntelligence}
             </Text>
@@ -46,27 +80,35 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: "center",
         alignItems: "center",
-        paddingTop: 40,
-        marginBottom: 30,
+        paddingVertical: 40,
+        paddingHorizontal: 5,
+        marginVertical: 30,
         marginHorizontal: 20,
         backgroundColor: "#ffffff",
+        textAlign: "center",
+    },
+    image: {
+        width: 40,
+        height: 40,
     },
     title: {
-        fontSize: 24,
+        fontSize: 20,
         fontWeight: "bold",
         marginBottom: 20,
     },
     subtitle: {
-        fontSize: 70,
+        fontSize: 35,
         fontWeight: "bold",
         marginBottom: 20,
+        color: "#0D4F8B",
     },
     button: {
         alignSelf: 'center',
-        borderRadius: 10,
+        borderRadius: 50,
         paddingVertical: 15,
         paddingHorizontal: 40,
-        marginTop: 20,
+        marginTop: 40,
+        backgroundColor: '#0D4F8B',
     },
     buttonText: {
         textAlign: 'center',
