@@ -13,26 +13,29 @@ const MatchScreen = () => {
     const route = useRoute();
     const { name, usersMatches } = route.params;
 
-    const { users, getUserIntelligence } = useUser();
+    const { getUserIntelligence, getUserSubIntelligence } = useUser();
 
     let intelligence = getUserIntelligence(name);
+    let subIntelligence = getUserSubIntelligence(name);
 
     const renderItem = ({ item }) => (
         <View style={styles.tableRow}>
             <Text style={styles.tableCell}>{item.name}</Text>
             <Text style={styles.tableCell}>{item.intelligence}</Text>
+            <Text style={styles.tableCell}>{item.subIntelligence}</Text>
         </View>
     );
 
     return (
         <View style={styles.container}>
             <Text style={styles.title}>
-                Para <Text style={styles.subtitle}>{name}</Text> con inteligencia <Text style={styles.subtitle}>{intelligence}</Text>, se tienen estas coincidencias:
+                Para <Text style={styles.subtitle}>{name}</Text> con inteligencia <Text style={styles.subtitle}>{intelligence}</Text> y subInteligencia <Text style={styles.subtitle}>{subIntelligence}</Text>, se tienen estas coincidencias:
             </Text>
             <View style={styles.containerTable}>
                 <View style={styles.tableRow}>
                     <Text style={styles.tableHeader}>Nombre</Text>
                     <Text style={styles.tableHeader}>Inteligencia</Text>
+                    <Text style={styles.tableHeader}>SubInteligencia</Text>
                 </View>
                 <FlatList
                     data={usersMatches}

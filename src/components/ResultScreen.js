@@ -15,9 +15,10 @@ const ResultScreen = () => {
     const { name } = route.params;
 
     const navigation = useNavigation();
-    const { getUserIntelligence, searchUserMatches } = useUser();
+    const { getUserIntelligence, getUserSubIntelligence, searchUserMatches } = useUser();
 
     let intelligence = getUserIntelligence(name);
+    let subIntelligence = getUserSubIntelligence(name);
 
     return (
         <View style={styles.container}>
@@ -25,12 +26,16 @@ const ResultScreen = () => {
             <Text style={styles.subtitle}>
                 {intelligence}
             </Text>
+            <Text style={styles.title}>Y la subinteligencia es:</Text>
+            <Text style={styles.subtitle}>
+                {subIntelligence}
+            </Text>
             <Button
                 title="Coincidencias"
                 buttonStyle={styles.button}
                 titleStyle={styles.buttonText}
                 onPress={() => {
-                    navigation.navigate("Match", { name: name, usersMatches: searchUserMatches(name, intelligence) });
+                    navigation.navigate("Match", { name: name, usersMatches: searchUserMatches(name, intelligence, subIntelligence) });
                 }}
             />
         </View>

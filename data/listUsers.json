@@ -3,72 +3,84 @@
         "id": 1,
         "name": "Juan Pérez",
         "password": "123",
-        "intelligence": "Espacial"
+        "intelligence": "Espacial",
+        "subIntelligence": "Creativo"
     },
     {
         "id": 2,
         "name": "María Gómez",
         "password": "123",
-        "intelligence": "Musical"
+        "intelligence": "Musical",
+        "subIntelligence": "Emocional"
     },
     {
         "id": 3,
         "name": "Carlos López",
         "password": "123",
-        "intelligence": "Lingüístico-Verbal"
+        "intelligence": "Lingüístico-Verbal",
+        "subIntelligence": "Lógico-Matemático"
     },
     {
         "id": 4,
         "name": "Laura Rodríguez",
         "password": "123",
-        "intelligence": "Lógico-Matemático"
+        "intelligence": "Lógico-Matemático",
+        "subIntelligence": "Intrapersonal"
     },
     {
         "id": 5,
         "name": "Andrés García",
         "password": "123",
-        "intelligence": "Corporal-Cinestésico"
+        "intelligence": "Corporal-Cinestésico",
+        "subIntelligence": "Interpersonal"
     },
     {
         "id": 6,
         "name": "Sofía Torres",
         "password": "123",
-        "intelligence": "Intrapersonal"
+        "intelligence": "Intrapersonal",
+        "subIntelligence": "Existencial"
     },
     {
         "id": 7,
         "name": "Alejandro Ramírez",
         "password": "123",
-        "intelligence": "Interpersonal"
+        "intelligence": "Interpersonal",
+        "subIntelligence": "Emocional"
     },
     {
         "id": 8,
         "name": "Valentina Cruz",
         "password": "123",
-        "intelligence": "Naturalista"
+        "intelligence": "Naturalista",
+        "subIntelligence": "Creativo"
     },
     {
         "id": 9,
         "name": "David Romero",
         "password": "123",
-        "intelligence": "Existencial"
+        "intelligence": "Existencial",
+        "subIntelligence": "Intrapersonal"
     },
     {
         "id": 10,
         "name": "Carolina Vargas",
         "password": "123",
-        "intelligence": "Creativo"
+        "intelligence": "Creativo",
+        "subIntelligence": "Emocional"
     },
     {
         "id": 11,
         "name": "José Medina",
         "password": "123",
-        "intelligence": "Emocional"
+        "intelligence": "Emocional",
+        "subIntelligence": "Interpersonal"
     },
     {
         "id": 12,
         "name": "Isabella Sánchez",
         "password": "123",
-        "intelligence": "Colaborativo"
+        "intelligence": "Colaborativo",
+        "subIntelligence": "Interpersonal"
     }
 ]
