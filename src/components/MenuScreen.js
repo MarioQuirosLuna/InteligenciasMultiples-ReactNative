@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Button } from 'react-native-elements';
 import { useNavigation, useRoute } from '@react-navigation/native';
+import useUser from '../hooks/useUser';
 
 const MenuScreen = () => {
     const route = useRoute();
     const { name } = route.params;
     const navigation = useNavigation();
+    const { getUserIntelligence } = useUser();
+
+    const intelligence = getUserIntelligence(name);
 
     return (
         <View style={styles.container}>
@@ -19,14 +23,17 @@ const MenuScreen = () => {
                 buttonStyle={styles.button}
                 titleStyle={styles.buttonText}
             />
-            <Button
-                title="Ver mi tipo de inteligencia"
-                onPress={() => {
-                    navigation.navigate('Result', { name: name });
-                }}
-                buttonStyle={styles.button}
-                titleStyle={styles.buttonText}
-            />
+            {intelligence !== 'default' ?
+                <Button
+                    title="Ver mi tipo de inteligencia"
+                    onPress={() => {
+                        navigation.navigate('Result', { name: name });
+                    }}
+                    buttonStyle={styles.button}
+                    titleStyle={styles.buttonText}
+                />
+                : <></>
+            }
         </View>
     );
 };
