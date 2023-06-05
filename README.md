@@ -130,6 +130,4 @@
 
 
 ## 💜 Acknowledgments.
-   - https://simpleicons.org/
-   - b
-   - c
+   - FlatIcons
