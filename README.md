@@ -11,6 +11,39 @@
 
 ## ✨ Demo.
 
+# Celular (Android)
+
+|Login|Modal|Menu|
+|--|--|--|
+|![img](https://github.com/MarioQuirosLuna/InteligenciasMultiples-ReactNative/blob/master/assets/Demo/Screenshot_2023-06-04-19-59-57-828_host.exp.exponent.jpg)|![img](https://github.com/MarioQuirosLuna/InteligenciasMultiples-ReactNative/blob/master/assets/Demo/Screenshot_2023-06-04-20-00-33-805_host.exp.exponent1.jpg)|![img](https://github.com/MarioQuirosLuna/InteligenciasMultiples-ReactNative/blob/master/assets/Demo/Screenshot_2023-06-04-20-00-44-093_host.exp.exponent2.jpg)|
+
+|Preguntas|Preguntas|Preguntas|
+|--|--|--|
+|![img](https://github.com/MarioQuirosLuna/InteligenciasMultiples-ReactNative/blob/master/assets/Demo/Screenshot_2023-06-04-20-01-02-939_host.exp.exponent4.jpg)|![img](https://github.com/MarioQuirosLuna/InteligenciasMultiples-ReactNative/blob/master/assets/Demo/Screenshot_2023-06-04-20-01-19-106_host.exp.exponent5.jpg)|![img](https://github.com/MarioQuirosLuna/InteligenciasMultiples-ReactNative/blob/master/assets/Demo/Screenshot_2023-06-04-20-01-43-920_host.exp.exponent6.jpg)|
+
+|Resultados|Perfiles relacionados|
+|--|--|
+|![img](https://github.com/MarioQuirosLuna/InteligenciasMultiples-ReactNative/blob/master/assets/Demo/Screenshot_2023-06-04-20-01-58-058_host.exp.exponent7.jpg)|![img](https://github.com/MarioQuirosLuna/InteligenciasMultiples-ReactNative/blob/master/assets/Demo/Screenshot_2023-06-04-20-02-08-655_host.exp.exponent8.jpg)|
+
+# IPAD (IOS)
+
+|Login|Modal|
+|--|--|
+|![img](https://github.com/MarioQuirosLuna/InteligenciasMultiples-ReactNative/blob/master/assets/Demo/image.png)|![img](https://github.com/MarioQuirosLuna/InteligenciasMultiples-ReactNative/blob/master/assets/Demo/image1.png)|
+
+|Menu|Preguntas|
+|--|--|
+|![img](https://github.com/MarioQuirosLuna/InteligenciasMultiples-ReactNative/blob/master/assets/Demo/image2.png)|![img](https://github.com/MarioQuirosLuna/InteligenciasMultiples-ReactNative/blob/master/assets/Demo/image3.png)|
+
+|Preguntas|Preguntas|
+|--|--|
+|![img](https://github.com/MarioQuirosLuna/InteligenciasMultiples-ReactNative/blob/master/assets/Demo/image4.png)|![img](https://github.com/MarioQuirosLuna/InteligenciasMultiples-ReactNative/blob/master/assets/Demo/image5.png)|
+
+|Resultado|Perfiles Relacionados|
+|--|--|
+|![img](https://github.com/MarioQuirosLuna/InteligenciasMultiples-ReactNative/blob/master/assets/Demo/image6.png)|![img](https://github.com/MarioQuirosLuna/InteligenciasMultiples-ReactNative/blob/master/assets/Demo/image7.png)|
+
+
 ## 💻 About the project.
 
    ### 📜 Descriptions.
